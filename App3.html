@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+        }
+
+        header {
+            background: #2c3e50;
+            padding: 15px;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            margin: 30px auto;
+            width: 90%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        /* Search Box */
+        .search-box {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: right;
+        }
+
+        .search-box input {
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        /* User Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        table th {
+            background: #2c3e50;
+            color: white;
+        }
+
+        /* Buttons */
+        .btn-edit {
+            background: #27ae60;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-delete {
+            background: #c0392b;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-edit:hover {
+            background: #1e8449;
+        }
+
+        .btn-delete:hover {
+            background: #922b21;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Admin Panel – Manage Users</h1>
+</header>
+
+<div class="container">
+    <h2>User List</h2>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search user..." onkeyup="searchUser()">
+    </div>
+
+    <table id="userTable">
+        <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Registered Date</th>
+            <th>Actions</th>
+        </tr>
+
+        <tr>
+            <td>101</td>
+            <td>Priya Sharma</td>
+            <td>priya@example.com</td>
+            <td>2024-12-01</td>
+            <td>
+                <button class="btn-edit">Edit</button>
+                <button class="btn-delete">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>102</td>
+            <td>Rahul Mehta</td>
+            <td>rahul@example.com</td>
+            <td>2025-01-05</td>
+            <td>
+                <button class="btn-edit">Edit</button>
+                <button class="btn-delete">Delete</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>103</td>
+            <td>Sandhya R</td>
+            <td>sandy@example.com</td>
+            <td>2025-01-10</td>
+            <td>
+                <button class="btn-edit">Edit</button>
+                <button class="btn-delete">Delete</button>
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+<script>
+    function searchUser() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+        let table = document.getElementById("userTable");
+        let rows = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < rows.length; i++) { 
+            let cells = rows[i].getElementsByTagName("td");
+            let match = false;
+
+            for (let j = 0; j < cells.length; j++) {
+                if (cells[j].innerHTML.toLowerCase().includes(input)) {
+                    match = true;
+                    break;
+                }
+            }
+
+            rows[i].style.display = match ? "" : "none";
+        }
+    }
+</script>
+
+</body>
+</html>
