@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Domestic Violence Reporting System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+        }
+
+        
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #b13535;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            text-decoration: none;
+            color: white;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #922a2a;
+        }
+
+        
+        .main {
+            margin-left: 270px;
+            padding: 30px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #b13535;
+        }
+
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #b13535;
+            color: white;
+        }
+
+        tr:hover {
+            background: #f2dede;
+        }
+
+       
+        .tag {
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .pending {
+            background: #ffc107;
+            color: black;
+        }
+
+        .resolved {
+            background: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <a href="#">Dashboard</a>
+        <a href="#">Reports</a>
+        <a href="#">Manage Users</a>
+        <a href="#">Emergency Data</a>
+        <a href="#">Settings</a>
+        <a href="login.html">Logout</a>
+    </div>
+
+    <div class="main">
+        <h1>Reported Incidents</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Incident Type</th>
+                <th>Description</th>
+                <th>Location</th>
+                <th>Status</th>
+            </tr>
+
+           
+            <tr>
+                <td>101</td>
+                <td>Physical Abuse</td>
+                <td>Pushed and slapped by partner</td>
+                <td>Mumbai</td>
+                <td><a href="incident_details.html?id=101" class="tag pending">Pending</a></td>
+                <nav><a href="reports.html">View Reports</a></nav>
+                <a href="manage-users.html">Manage Users</a>
+                <nav><a href="settings.html">Settings</a></nav>
+                <nav><a href="emergency-data.html">Emergency-data</a></nav>
+
+            </tr>
+
+            <tr>
+                <td>102</td>
+                <td>Emotional Abuse</td>
+                <td>Continuous verbal threats</td>
+                <td>Delhi</td>
+                <td><span class="tag resolved">Resolved</span></td>
+            </tr>
+
+            <tr>
+                <td>103</td>
+                <td>Financial Abuse</td>
+                <td>Restricted access to bank account</td>
+                <td>Bangalore</td>
+                <td><span class="tag pending">Pending</span></td>
+            </tr>
+
+        </table>
+    </div>
+
+</body>
+</html>
